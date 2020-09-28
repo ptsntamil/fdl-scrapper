@@ -1,0 +1,34 @@
+CREATE DATABASE fdl_data;
+CREATE TABLE IF NOT EXISTS `people` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `linkedin_profile_link` VARCHAR(255) NULL,
+  `position` VARCHAR(255) NULL,
+  `company` INT(11)  NULL,
+  `city` VARCHAR(255)  NULL,
+  `duration` VARCHAR(255)  NULL,
+  `linkedin_profile_id` INT(255) NULL,
+  `source` INT(5) NULL,
+  FOREIGN KEY (company) REFERENCES company(id),
+  FOREIGN KEY (source) REFERENCES source(id),
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `company` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `linkedin_profile_link` VARCHAR(255) NULL,
+  `city` VARCHAR(255)  NULL,
+  `linkedin_profile_id` INT(255) NULL,
+  `source` INT(5) NULL,
+  `address` VARCHAR(255) NULL,
+  `website` VARCHAR(255) NULL
+  FOREIGN KEY (source) REFERENCES source(id),
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+ALTER TABLE company CONVERT TO CHARACTER SET utf8;
+ALTER TABLE people CONVERT TO CHARACTER SET utf8;
+CREATE TABLE IF NOT EXISTS `source` (
+  `id` INT(5) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+) ENGINE=INNODB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
