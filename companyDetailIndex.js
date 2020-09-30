@@ -39,8 +39,8 @@ function crawlEachCompanyDetails(url) {
 
 
         for (let i = 0; i < jsonData.length; i++) {
-            linkedInUrl = jsonData[i].linkedin_company_link;
-            companyName = jsonData[i].Companyname;
+            linkedInUrl = jsonData[i].linkedin_Company_Link;
+            companyName = jsonData[i].CompanyName;
             try {
                 if (
                     linkedInUrl &&
